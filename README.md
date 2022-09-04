@@ -59,6 +59,15 @@ It is necessary to add the environment variable that allows the connection to th
 
 ## Running the tests
 
+### Part 1: Adding Security Configuration:
+
++ Open Endpoint: User's List. Should return all registered users no problem.
+
+![openEPGET](/img/openEPGet.png)
+
++ Secured Endpoint: User by Id. Should not be allowed to obtain the result of the request. 
+
+![secureEPGetById](/img/secureEPGetById.png)
 
 ## Built With
 
