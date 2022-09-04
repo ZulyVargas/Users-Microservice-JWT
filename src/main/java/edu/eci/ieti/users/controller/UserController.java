@@ -15,7 +15,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 @RestController
-@RequestMapping( "/api/v1/users" )
+@RequestMapping( "/api/v1/user" )
 public class UserController {
 
     private final UserService userService;
