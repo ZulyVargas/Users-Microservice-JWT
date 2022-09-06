@@ -83,7 +83,7 @@ Test user:
 	}
   ```
 
-  ![](/img/P2OK.png)
+  ![P2OK](/img/P2Ok.png)
 
   The token and its expiration date are obtained as expected.
 
