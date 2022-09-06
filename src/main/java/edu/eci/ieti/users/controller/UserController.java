@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.*;
 
 import org.modelmapper.ModelMapper;
 
+import javax.annotation.security.RolesAllowed;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -81,6 +82,7 @@ public class UserController {
     }
 
     @DeleteMapping( "/{id}" )
+    @RolesAllowed("ADMIN")
     public ResponseEntity<Boolean> delete( @PathVariable String id ) {
         try {
             userService.deleteById(id);

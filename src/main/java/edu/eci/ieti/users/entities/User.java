@@ -31,7 +31,6 @@ public class User {
     public User(){
         this.id = String.valueOf((int)(Math.random()*9));
         this.createdAt = LocalDate.now().toString();
-        this.roles = new ArrayList<>();
     }
 
     public User(UserDto userDto){
@@ -41,6 +40,9 @@ public class User {
         this.lastName = userDto.getLastName();
         this.createdAt = userDto.getCreatedAt();
         this.passwordHash = BCrypt.hashpw(userDto.getPassword(), BCrypt.gensalt());
+        roles = new ArrayList<>();
+        //Get test
+        roles.add(RoleEnum.USER);
     }
 
     public User(String name, String email, String lastName){

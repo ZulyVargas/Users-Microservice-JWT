@@ -41,12 +41,8 @@ public class AuthController
     @PostMapping
     public TokenDto login(@RequestBody LoginDto loginDto )
     {
-        System.out.println("---------I am in the post------------------");
 
         User user = userService.findByEmail(loginDto.getEmail());
-
-        System.out.println("---------User ? ------------------   " + user.getEmail());
-        System.out.println("---------Password ? ------------------   " + user.getPasswordHash());
 
         if ( BCrypt.checkpw(loginDto.getPassword(), user.getPasswordHash() ) )
         {
@@ -61,7 +57,6 @@ public class AuthController
 
     private String generateToken( User user, Date expirationDate )
     {
-        System.out.println("---------Secret ? ------------------   " + secret);
         return Jwts.builder()
                 .setSubject( user.getId() )
                 .claim( CLAIMS_ROLES_KEY, user.getRoles() )
