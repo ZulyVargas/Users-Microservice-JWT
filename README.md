@@ -1,8 +1,7 @@
 # (Users-Microservice-RESTFUL-API)Spring Boot Security with JWT
 
 
-
-In this practice...
+In this practice is implemented the security of the API endpoints for users using JWT.
 
 IETI - LAB03
 
@@ -68,6 +67,28 @@ It is necessary to add the environment variable that allows the connection to th
 + Secured Endpoint: User by Id. Should not be allowed to obtain the result of the request. 
 
 ![secureEPGetById](/img/secureEPGetById.png)
+
+### Part 2: Implementing the Authentication Controller
+
++ (POST) v1/auth endpoint to obtain the token:
+
+Test user:
+
+  ![](/img/userTestP2.png)
+
+  ```JSON
+	{
+		"email": "email10@gmail.com",
+	  "password": "12345"
+	}
+  ```
+
+  ![](/img/P2OK.png)
+
+  The token and its expiration date are obtained as expected.
+
+### Part 3: Implement JWT Request Filter
+
 
 ## Built With
 
