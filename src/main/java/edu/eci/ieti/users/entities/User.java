@@ -1,6 +1,8 @@
 package edu.eci.ieti.users.entities;
 
 import java.time.LocalDate;
+import java.util.List;
+import edu.eci.ieti.users.enums.RoleEnum;
 //Imports for MongoDB
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.index.Indexed;
@@ -10,17 +12,18 @@ import org.springframework.data.mongodb.core.mapping.Document;
 public class User {
     @Id
     String id;
-
     String name;
 
     @Indexed( unique = true )
     String email;
 
     String lastName;
-
     String createdAt;
 
+    private String passwordHash;
+    private List<RoleEnum> roles;
 
+    
     public User(){
         this.id = String.valueOf((int)(Math.random()*9));
         this.createdAt = LocalDate.now().toString();
@@ -71,9 +74,17 @@ public class User {
         this.lastName = lastName;
     }
 
-
     public String getCreatedAt() {
         return createdAt;
+    }
+
+
+    public String getPasswordHash() {
+        return passwordHash;
+    }
+
+    public List<RoleEnum> getRoles() {
+        return roles;
     }
 
 }

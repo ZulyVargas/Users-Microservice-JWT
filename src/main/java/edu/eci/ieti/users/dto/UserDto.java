@@ -9,6 +9,8 @@ public class UserDto {
     String lastName;
     String createdAt;
 
+    String password;
+
     public UserDto(){
         this.id = String.valueOf((int)(Math.random()*9));
         this.createdAt = LocalDate.now().toString();
@@ -59,9 +61,12 @@ public class UserDto {
         this.lastName = lastName;
     }
 
-
     public String getCreatedAt() {
         return createdAt;
+    }
+
+    public String getPassword() {
+        return password;
     }
 
 }
