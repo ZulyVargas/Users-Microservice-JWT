@@ -63,5 +63,15 @@ public class UserServiceMongoDB  implements UserService {
 
     }
 
+    @Override
+    public User findByEmail(String email) {
+        List<User> users = userRepository.findAll();
+        for (User u : users){
+            if (u.getEmail().equals(email)){
+                return u;
+            }
+        }
+        return null;
+    }
 
 }

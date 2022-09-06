@@ -21,6 +21,8 @@ public interface UserService {
 
     List<User> findUsersCreatedAfter(String startDate);
 
+    User findByEmail(String email);
+
 
 
 

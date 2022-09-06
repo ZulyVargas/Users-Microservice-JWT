@@ -20,6 +20,7 @@ public class UserController {
 
     private final UserService userService;
 
+
     @Autowired
     public UserController(UserService userService) {
         this.userService = userService;
@@ -57,8 +58,11 @@ public class UserController {
     @PostMapping
     public ResponseEntity<UserDto> create( @RequestBody UserDto userDto ) {
         try {
-            ModelMapper modelMapper = new ModelMapper();
-            userService.create(modelMapper.map(userDto, User.class));
+            //ModelMapper modelMapper = new ModelMapper();
+            //Change to add the password
+            //userService.create(modelMapper.map(userDto, User.class));
+            User newUser = new User(userDto);
+            userService.create(newUser);
             return new ResponseEntity<>(userDto, HttpStatus.ACCEPTED);
         } catch(Exception e) {
             return new ResponseEntity<>(null, HttpStatus.NOT_FOUND);

@@ -8,7 +8,6 @@ public class UserDto {
     String email;
     String lastName;
     String createdAt;
-
     String password;
 
     public UserDto(){
@@ -16,15 +15,16 @@ public class UserDto {
         this.createdAt = LocalDate.now().toString();
     }
 
-    public UserDto(String name, String email, String lastName){
+    public UserDto(String name, String email, String lastName, String password){
         this();
         this.name = name;
         this.lastName = lastName;
         this.email = email;
+        this.password = password;
     }
 
-    public UserDto(String id,String name, String email, String lastName, String createdAt){
-        this(name, email, lastName);
+    public UserDto(String id,String name, String email, String lastName, String createdAt, String password){
+        this(name, email, lastName, password);
         this.id = id;
         this.createdAt = createdAt;
     }
