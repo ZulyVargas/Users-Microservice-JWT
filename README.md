@@ -89,6 +89,20 @@ Test user:
 
 ### Part 3: Implement JWT Request Filter
 
+For this point the token is obtained as with the request made in part 2.
+
+  ![TokenP3](/img/P2Ok.png)
+
+The token returned in the response is copied and added in the Authorization header with the word Bearer:
+
+  ![token](/img/tokenP3.png)
+
+Result:
+
++ (GET) /api/v1/user
+
+
+![result](/img/resultP3.png)
 
 ## Built With
 
