@@ -15,12 +15,13 @@ import javax.annotation.security.RolesAllowed;
 import java.util.ArrayList;
 import java.util.List;
 
+
 @RestController
+@CrossOrigin(origins = "*")
 @RequestMapping( "/api/v1/user" )
 public class UserController {
 
     private final UserService userService;
-
 
     @Autowired
     public UserController(UserService userService) {
@@ -127,8 +128,17 @@ public class UserController {
             return new ResponseEntity<>(null, HttpStatus.NOT_FOUND);
         }
 
+    }
 
-}
+    @GetMapping( "/mail/{email}" )
+    public ResponseEntity<UserDto> findByMail(@PathVariable String email ) {
+        try {
+            ModelMapper modelMapper = new ModelMapper();
+            return new ResponseEntity<>(modelMapper.map(userService.findByEmail(email), UserDto.class), HttpStatus.ACCEPTED);
+        }catch(Exception e){
+            return new ResponseEntity<>(null, HttpStatus.NOT_FOUND);
+        }
+    }
 
 
 }

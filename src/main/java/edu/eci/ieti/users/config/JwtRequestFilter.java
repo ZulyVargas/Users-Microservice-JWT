@@ -66,7 +66,6 @@ public class JwtRequestFilter extends OncePerRequestFilter
 
                 if ( token != null )
                 {
-                    System.out.println("Token !=null---------");
                     Jws<Claims> claims = Jwts.parser().setSigningKey( secret ).parseClaimsJws( token );
                     Claims claimsBody = claims.getBody();
                     String subject = claimsBody.getSubject();
